@@ -10,14 +10,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_220_203_224_220) do
+ActiveRecord::Schema.define(version: 20_220_207_232_446) do
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
 
-  create_table 'stores', force: :cascade do |t|
+  create_table 'customers', id: :uuid, default: -> { 'gen_random_uuid()' }, force: :cascade do |t|
+    t.string 'first_name'
+    t.string 'last_name'
+    t.string 'phone_number'
+    t.string 'email'
+    t.integer 'type', default: 0
+    t.string 'country'
+    t.uuid 'reservation_id'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+  end
+
+  create_table 'reservations', id: :uuid, default: -> { 'gen_random_uuid()' }, force: :cascade do |t|
+    t.datetime 'date'
+    t.integer 'status', default: 0
+    t.integer 'guest_count'
+    t.string 'note'
+    t.uuid 'store_id'
+    t.uuid 'customer_id'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+  end
+
+  create_table 'stores', id: :uuid, default: -> { 'gen_random_uuid()' }, force: :cascade do |t|
     t.string 'name'
     t.text 'address'
     t.string 'phone_number'
+    t.uuid 'reservation_id'
+    t.uuid 'customer_id'
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
   end

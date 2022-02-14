@@ -31,10 +31,10 @@ group :development, :test do
 end
 
 group :development do
-  gem 'listen', '~> 3.3'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'graphiql-rails', '~> 1.8'
   gem 'graphql', '~> 1.13', '>= 1.13.8'
+
+  gem 'listen', '~> 3.3'
   gem 'spring'
 end
 
