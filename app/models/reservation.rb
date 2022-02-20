@@ -7,3 +7,18 @@ class Reservation < ApplicationRecord
   validates :date, presence: true
   validates :guest_count, presence: true
 end
+
+# == Schema Information
+#
+# Table name: reservations
+#
+#  id          :bigint           not null, primary key
+#  date        :datetime
+#  status      :integer          default("init")
+#  guest_count :integer
+#  note        :string
+#  store_id    :integer
+#  customer_id :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#

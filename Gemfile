@@ -29,11 +29,13 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'faker'
+  gem 'goldiloader'
 end
 
 group :development do
   gem 'graphiql-rails', '~> 1.8'
   gem 'graphql', '~> 1.13', '>= 1.13.8'
+  gem 'annotate'
 
   gem 'listen', '~> 3.3'
   gem 'spring'

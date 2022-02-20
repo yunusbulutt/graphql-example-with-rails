@@ -10,3 +10,19 @@ class Customer < ApplicationRecord
   validates :last_name, presence: true
   validates :phone_number, presence: true
 end
+
+# == Schema Information
+#
+# Table name: customers
+#
+#  id           :bigint           not null, primary key
+#  first_name   :string
+#  last_name    :string
+#  phone_number :string
+#  email        :string
+#  type         :integer          default("normal")
+#  country      :string
+#  store_id     :integer
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#

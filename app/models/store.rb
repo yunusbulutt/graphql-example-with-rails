@@ -6,3 +6,15 @@ class Store < ApplicationRecord
   validates :address, presence: true
   validates :phone_number, presence: true
 end
+
+# == Schema Information
+#
+# Table name: stores
+#
+#  id           :bigint           not null, primary key
+#  name         :string
+#  address      :text
+#  phone_number :string
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
