@@ -12,6 +12,7 @@ module Mutations
       argument :phone_number, String, required: true, camelize: false
       argument :email, String, required: false, camelize: false
       argument :type, [Enum::CustomerTypeType], required: false, camelize: false
+      argument :country, String, required: false, camelize: false
 
       def resolve(**args)
         customer = ::Customer.new(
