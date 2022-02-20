@@ -1,14 +1,12 @@
-# frozen_string_literal: true
-
 module Types
   class ReservationType < Types::BaseObject
-    field :id, ID, null: false
-    field :date, GraphQL::Types::ISO8601DateTime, null: false
-    field :status, Enum::ReservationStatusTypeType, null: false
-    field :guest_count, Integer, null: false
-    field :note, String
+    field :id, ID, null: false, camelize: false
+    field :date, String, null: false, camelize: false
+    field :status, String, null: false, camelize: false
+    field :guest_count, Integer, null: false, camelize: false
+    field :note, String, null: false, camelize: false
 
-    field :customer, Types::CustomerType
-    field :store, Types::StoreType
+    field :store, Types::StoreType, null: true
+    field :customer, Types::CustomerType, null: true
   end
 end

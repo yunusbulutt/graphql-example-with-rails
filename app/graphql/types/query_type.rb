@@ -1,27 +1,45 @@
 module Types
   class QueryType < Types::BaseObject
-    field :all_stores, [StoreType], null: false, camelize: false do
-      argument :id, ID, required: false
+    field :stores, [Types::StoreType], null: false, camelize: false
+
+    def stores
+      Store.all
     end
 
-    def all_stores(id: nil)
-      if id.present?
-        Store.where(id: id)
-      else
-        Store.all
-      end
+    field :store, Types::StoreType, null: false, camelize: false do
+      argument :id, ID, required: true
     end
 
-    field :all_reservations, [ReservationType], null: false, camelize: false
+    def store(id:)
+      Store.find(id)
+    end
 
-    def all_reservations
+    field :reservations, [Types::ReservationType], null: false, camelize: false
+
+    def reservations
       Reservation.all
     end
 
-    field :all_customers, [CustomerType], null: false, camelize: false
+    field :reservation, Types::ReservationType, null: false, camelize: false do
+      argument :id, ID, required: true
+    end
 
-    def all_customers
+    def reservation(id:)
+      Reservation.find(id)
+    end
+
+    field :customers, [Types::CustomerType], null: false, camelize: false
+
+    def customers
       Customer.all
+    end
+
+    field :customer, Types::CustomerType, null: false, camelize: false do
+      argument :id, ID, required: true
+    end
+
+    def customer(id:)
+      Customer.find(id)
     end
   end
 end

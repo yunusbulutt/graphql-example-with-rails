@@ -1,11 +1,11 @@
 module Types
   class StoreType < Types::BaseObject
-    field :id, ID, null: false
-    field :name, String, null: false
-    field :address, String, null: false
-    field :phone_number, String, null: false
+    field :id, ID, null: false, camelize: false
+    field :name, String, null: false, camelize: false
+    field :address, String, null: false, camelize: false
+    field :phone_number, String, null: false, camelize: false
 
-    field :reservations, Types::ReservationType
-    field :customers, Types::CustomerType
+    field :reservations, [Types::ReservationType], null: true
+    field :customers, [Types::CustomerType], null: true
   end
 end
