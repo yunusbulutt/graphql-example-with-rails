@@ -27,19 +27,5 @@ module Types
     def reservation(id:)
       Reservation.find(id)
     end
-
-    field :customers, [Types::CustomerType], null: false, camelize: false
-
-    def customers
-      Customer.all
-    end
-
-    field :customer, Types::CustomerType, null: false, camelize: false do
-      argument :id, ID, required: true
-    end
-
-    def customer(id:)
-      Customer.find(id)
-    end
   end
 end
