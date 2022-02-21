@@ -7,6 +7,5 @@ module Types
     field :note, String, null: false, camelize: false
 
     field :store, Types::StoreType, null: true
-    field :customer, Types::CustomerType, null: true
   end
 end
