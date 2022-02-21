@@ -6,6 +6,5 @@ module Types
     field :phone_number, String, null: false, camelize: false
 
     field :reservations, [Types::ReservationType], null: true
-    field :customers, [Types::CustomerType], null: true
   end
 end
