@@ -16,9 +16,7 @@ class GraphqlExampleSchema < GraphQL::Schema
 
   # Union and Interface Resolution
   def self.resolve_type(abstract_type, obj, ctx)
-    # TODO: Implement this method
-    # to return the correct GraphQL object type for `obj`
-    raise(GraphQL::RequiredImplementationMissingError)
+    "Types::#{obj.class}Type".constantize
   end
 
   # Relay-style Object Identification:
